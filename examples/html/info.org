@@ -43,6 +43,17 @@
 (或是按下 M-x org-html-export-to-html 也可以)
 * 表格
 
+** 一般表格
+
+#+CAPTION: People
+#+ATTR_HTML: :border 2 :rules all :frame border
+| Name     | Age |
+|----------+-----|
+| Jhon Lee |  18 |
+| Marry    |  20 |
+
+** 試算表
+
 #+TBLNAME: org-babel-tests
 | functionality    | block        | arg |    expected |     results | pass |
 |------------------+--------------+-----+-------------+-------------+------|
@@ -54,6 +65,7 @@
 | python           | basic-python |     | hello world | hello world | pass |
 | R                | basic-R      |     |          13 |          13 | pass |
 #+TBLFM: $5='(if (= (length $3) 1) (sbe $2 (n $3)) (sbe $2)) :: $6='(if (string= $4 $5) "pass" (format "expected %S but was %S" $4 $5))
+
 * 程式碼
 
 ** Python
