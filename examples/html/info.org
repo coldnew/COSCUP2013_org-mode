@@ -41,6 +41,50 @@
 編輯完檔案後，使用 Ctrl-c Ctrl-e h h，就可以輸出成 HTML 檔案。
 
 (或是按下 M-x org-html-export-to-html 也可以)
+* 表格
+
+#+TBLNAME: org-babel-tests
+| functionality    | block        | arg |    expected |     results | pass |
+|------------------+--------------+-----+-------------+-------------+------|
+| basic evaluation |              |     |             |             | pass |
+|------------------+--------------+-----+-------------+-------------+------|
+| emacs lisp       | basic-elisp  |   2 |           4 |           4 | pass |
+| shell            | basic-shell  |     |           6 |           6 | pass |
+| ruby             | basic-ruby   |     |   org-babel |   org-babel | pass |
+| python           | basic-python |     | hello world | hello world | pass |
+| R                | basic-R      |     |          13 |          13 | pass |
+#+TBLFM: $5='(if (= (length $3) 1) (sbe $2 (n $3)) (sbe $2)) :: $6='(if (string= $4 $5) "pass" (format "expected %S but was %S" $4 $5))
+* 程式碼
+
+** Python
+
+#+BEGIN_SRC python
+  # indent your Python code to put into an email
+  import glob
+  # glob supports Unix style pathname extensions
+  python_files = glob.glob('*.py')
+  for file_name in sorted(python_files):
+      print '    ------' + file_name
+
+      with open(file_name) as f:
+          for line in f:
+              print '    ' + line.rstrip()
+
+      print
+#+END_SRC
+
+** C/C++
+
+#+BEGIN_SRC c
+  // C hello world example
+  #include <stdio.h>
+
+  int main()
+  {
+    printf("Hello world\n");
+    return 0;
+  }
+#+END_SRC
 
 * 其他項目
 
