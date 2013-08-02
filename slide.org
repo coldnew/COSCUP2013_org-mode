@@ -40,7 +40,22 @@
 
 - GitHub: http://github.com/coldnew
 
-* Before we start
+* Org Mode - Organize Your Life In Plain Text!
+
+:PROPERTIES:
+:TITLE: hide
+:SLIDE: segue dark quote
+:ASIDE: right bottom
+:ARTICLE: flexbox vleft auto-fadein
+:END:
+
+#+BEGIN_HTML
+  <q>
+    Org Mode <br> - Organize Your Life In Plain Text!
+  </q>
+#+END_HTML
+
+** Before we start
 
 You need
 
@@ -77,21 +92,6 @@ For org-mode version below 8.0
 #+HTML: <footer class="source">
 http://orgmode.org/worg/org-tutorials/org4beginners.html
 #+HTML: </footer>
-
-* Org Mode - Organize Your Life In Plain Text!
-
-:PROPERTIES:
-:TITLE: hide
-:SLIDE: segue dark quote
-:ASIDE: right bottom
-:ARTICLE: flexbox vleft auto-fadein
-:END:
-
-#+BEGIN_HTML
-  <q>
-    Org Mode <br> - Organize Your Life In Plain Text!
-  </q>
-#+END_HTML
 
 ** 使用大綱來組織內容
 
@@ -185,6 +185,10 @@ http://orgmode.org/manual/Hyperlinks.html#Hyperlinks
 
 - 使用 =M-x org-toggle-inline-images= 來切換顯示圖片
 
+#+BEGIN_CENTER
+[[file:picts/emacs-image.png]]
+#+END_CENTER
+
 #+HTML: <footer class="source">
 [[http://coldnew.github.io/blog/2013/07/14_a5b3f.html][在 org-mode 中顯示圖片]]
 #+HTML: </footer>
@@ -244,6 +248,7 @@ http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html
   print ("Hello Org-mode")
 ,#+END_SRC
 #+END_SRC
+
 
 * 筆記系統與任務管理
 
