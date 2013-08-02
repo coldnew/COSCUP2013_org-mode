@@ -1,0 +1,35 @@
+#+TITLE: TODO example
+
+* About
+
+Example get from : [[http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html][How I use Emacs and Org-mode to implement GTD ]]
+
+1. You must use =C-c [= to recode this file in agenda.
+2. Use =M-x org-agenda= then select what you want to know.
+3. You can use =C-c \= to search tag.
+4. Use =C-c C-c= to disable highlight.
+
+* Borrowed
+#+CATEGORY: Borrowed
+** Stanton Library
+*** TODO Watch Mikrokosmos                                            :DVD:
+DEADLINE: <2013-08-03 Sat>
+*** TODO Read Parrots of Australia                                :READING:
+DEADLINE: <2013-08-03 Sat>
+*** TODO Watch The diaries of Vaslav Nijinsky                         :DVD:
+DEADLINE: <2013-08-04 Sun>
+
+* Projects
+#+CATEGORY: Projects
+** Implement Brian Tracy Focal Point Program                     :PROJECT:
+*** Outcome
+DEADLINE: <2013-08-05 Mon>
+ Make the Focal Point methodology an ingrained part of my being
+*** TODO Detailed study of Health and Fitness Chapter            :READING:
+    DEADLINE: <2014-01-19 Mon>
+*** Detailed study of Business and Career (Focal Point)          :READING:
+*** Detailed study of Family & Personal life (Focal Point)       :READING:
+*** Detailed study of Money and Investments (Focal Point)        :READING:
+*** Detailed study of Personal Growth and Develop (Focal Poin    :READING:
+*** Detailed study of Social and Community (Focal Point)         :READING:
+*** Detailed study of Spiritual Dev & Inner Peace (Focal Point)  :READING:
