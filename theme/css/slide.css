@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* Overwrite the background in default.css */
+slides > slide:not(.nobackground):before {
+    background: url(../../picts/org-mode_icon.png) no-repeat 0 50%;
+    font-size: 12pt;
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    -webkit-background-size: 30px 30px;
+    -moz-background-size: 30px 30px;
+    -o-background-size: 30px 30px;
+    background-size: 30px 30px;
+    padding-left: 40px;
+    height: 30px;
+    line-height: 1.9;
+}
+
+pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+    margin-left: 60px;
+    width: 100%;
+}
+
+pre.prettyprint {
+    background-color: #2e3436;
+    color: #eeeeec;
+    white-space: pre-wrap;
+}
+
+pre.example {
+    background-color: #2e3436;
+    color: #eeeeec;
+}
+
+
+table td, table th {
+  font-size: 16px;
+  padding: 1em 0.5em;
+}
