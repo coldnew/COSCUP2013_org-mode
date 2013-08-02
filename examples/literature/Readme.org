@@ -1,0 +1,195 @@
+#+TITLE: Literature Programming Example
+#+AUTHOR: you
+#+EMAIL:  you (at) email.org
+
+* How to use this template
+
+1. Use =C-c C-c= to following block. (This will add some setting to emacs.)
+
+   # This code will not be tangle to file
+
+   #+BEGIN_SRC emacs-lisp :tangle no
+     (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+        (C . t)
+        (ditaa . t)
+        (dot . t)
+        (python . t)
+        (plantuml . t)
+        ))
+   #+END_SRC
+
+2. First check this dir only contain this file.
+
+3. Use =M-x org-babel-tangle= to generate all code.
+
+4. Walk through the example, and use  =C-c C-c= to execute the code block directly.
+
+5. For more info, please take a look at [[http://orgmode.org/worg/org-contrib/babel/intro.html][Babel: Introduction]]
+
+* Examples
+
+** emacs lisp
+
+In the code block, use =C-c C-c= to evalute.
+
+#+BEGIN_SRC emacs-lisp
+  (message "Hello Org-mode")
+#+END_SRC
+
+** Bash
+
+In the code block, use =C-c C-c= to evalute.
+
+#+BEGIN_SRC sh :sheban #!/bin/sh :tangle source/bash-script.sh
+  ls -l .
+#+END_SRC
+
+** Graphviz
+
+[[http://www.graphviz.org/][Graphviz]] is open source graph visualization software. Graph
+visualization is a way of representing structural information
+as diagrams of abstract graphs and networks. It has important
+applications in networking, bioinformatics,  software
+engineering, database and web design, machine learning, and in
+visual interfaces for other technical domains.
+
+You can use =C-c C-c= to evalute following source block.
+
+After the image is generated, you can use =M-x org-toggle-inline-images=
+to toggle images show on emacs.
+
+*NOTE: your emacs must build with imagemagick to use toggle-image feature*
+
+#+BEGIN_SRC dot :tangle source/graphviz-example.dot :file picts/graphviz-example.png :exports both
+  digraph G {
+          subgraph cluster_0 {
+                  style=filled;
+                  color=lightgrey;
+                  node [style=filled,color=white];
+                  a0 -> a1 -> a2 -> a3;
+                  label = "process #1";
+          }
+
+          subgraph cluster_1 {
+                  node [style=filled];
+                  b0 -> b1 -> b2 -> b3;
+                  label = "process #2";
+                  color=blue
+          }
+          start -> a0;
+          start -> b0;
+          a1 -> b3;
+          b2 -> a3;
+          a3 -> a0;
+          a3 -> end;
+          b3 -> end;
+
+          start [shape=Mdiamond];
+          end [shape=Msquare];
+  }
+#+END_SRC
+
+** Ditaa
+
+[[http://ditaa.sourceforge.net/][ditaa]] is a small command-line utility written in Java, that can
+convert diagrams drawn using ascii art ('drawings' that contain
+characters that resemble lines like | / - ), into proper bitmap
+graphics. This is best illustrated by the following example
+-- which also illustrates the benefits of using ditaa in comparison
+to other methods :)
+
+Befor you use plantuml in org-mode, you need to specify where is the
+plantuml.jar.
+
+For example, following emacs setup place the plantuml.jar at =~/jars/=
+
+#+BEGIN_SRC emacs-lisp :tangle no
+  (setq org-ditaa-jar-path "~/jars/ditaa.jar")
+#+END_SRC
+
+The ditaa code is as below.
+
+#+BEGIN_SRC ditaa :tangle source/ditaa-example.txt :file picts/ditaa-example.png
+      +--------+   +-------+    +-------+
+      |        | --+ ditaa +--> |       |
+      |  Text  |   +-------+    |diagram|
+      |Document|   |!magic!|    |       |
+      |     {d}|   |  c478 |    |       |
+      +---+----+   +-------+    +-------+
+          |                         ^
+          |       Lots of work      |
+          +------------+------------+
+                       |
+                       |
+                       OK
+#+END_SRC
+
+** PlantUML
+
+[[http://plantuml.sourceforge.net/index.html][PlantUML]] is a component that allows to quickly write :
+
+- sequence diagram,
+- use case diagram,
+- class diagram,
+- activity diagram,
+- component diagram,
+- state diagram
+- object diagram
+
+Befor you use plantuml in org-mode, you need to specify where is the
+plantuml.jar.
+
+For example, following emacs setup place the plantuml.jar at =~/jars/=
+
+#+BEGIN_SRC emacs-lisp :tangle no
+  (setq org-plantuml-jar-path "~/jars/plantuml.jar")
+#+END_SRC
+
+The plantuml code is as below.
+
+#+BEGIN_SRC plantuml :tangle source/plantuml.txt  :file picts/plantuml-example.png
+   skinparam backgroundColor #EEEBDC
+
+   skinparam sequence {
+           ArrowColor DeepSkyBlue
+           ActorBorderColor DeepSkyBlue
+           LifeLineBorderColor blue
+           LifeLineBackgroundColor #A9DCDF
+
+           ParticipantBorderColor DeepSkyBlue
+           ParticipantBackgroundColor DodgerBlue
+           ParticipantFontName Impact
+           ParticipantFontSize 17
+           ParticipantFontColor #A9DCDF
+
+           ActorBackgroundColor aqua
+           ActorFontColor DeepSkyBlue
+           ActorFontSize 17
+           ActorFontName Aapex
+   }
+
+   actor User
+   participant "First Class" as A
+   participant "Second Class" as B
+   participant "Last Class" as C
+
+   User -> A: DoWork
+   activate A
+
+   A -> B: Create Request
+   activate B
+
+   B -> C: DoWork
+   activate C
+   C --> B: WorkDone
+   destroy C
+
+   B --> A: Request Created
+   deactivate B
+
+   A --> User: Done
+   deactivate A
+
+#+END_SRC
