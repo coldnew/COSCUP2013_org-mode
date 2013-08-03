@@ -13,3 +13,7 @@ All examples are locate at examples folder.
 的。
 
 examples 資料夾則置放著許多範例，包含有提到的或是來不及講到的。
+
+# View the slide online
+
+Use [this link](http://coldnew.github.io/slides/COSCUP2013_org-mode/slide.html) to view the slide.
