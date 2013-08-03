@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
    // Slide Settings
    settings: {
-     title: 'Org-mode <br> Emace 下的瑞士軍刀', 
+     title: 'Org-mode <br> Emacs 下的瑞士軍刀', 
      subtitle: '', 
      useBuilds: true, // Default: true. False will turn off slide animation builds. 
      usePrettify: false, // Default: true 
@@ -18,7 +18,7 @@ var SLIDE_CONFIG = {
    presenters: [{
      name: 'Yen-Chin, Lee', 
      company: 'coldnew <br> emacs.tw', 
-     gplus: '', 
+     gplus: 'https://github.com/coldnew/COSCUP2013_org-mode.git', 
      twitter: '', 
      www: 'http://coldnew.github.io', 
      github: 'http://github.com/coldnew', 

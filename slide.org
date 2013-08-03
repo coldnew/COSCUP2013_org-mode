@@ -1,8 +1,9 @@
-#+TITLE: Org-mode <br> Emace 下的瑞士軍刀
+#+TITLE: Org-mode <br> Emacs 下的瑞士軍刀
 #+AUTHOR: Yen-Chin, Lee
 #+EMAIL: coldnew.tw@gmail.com
 #+COMPANY: coldnew <br> emacs.tw
 
+#+GOOGLE_PLUS: https://github.com/coldnew/COSCUP2013_org-mode.git
 #+WWW: http://coldnew.github.io
 #+GITHUB: http://github.com/coldnew
 
@@ -55,6 +56,23 @@
   </q>
 #+END_HTML
 
+** The absolute minimum you need to know about Emacs
+
+- =M= - =ALT= (used to be called Meta)
+- =C= - =Control=
+- =S= - =Shift=
+#+HTML: <br>
+
+- =C-x C-s= - =save document=
+- =C-x C-f= - =open document=
+
+#+HTML: <br> <br>
+- Emacs is =Escape Meta Alt Control Shift=
+
+#+HTML: <footer class="source">
+http://orgmode.org/worg/org-tutorials/org4beginners.html
+#+HTML: </footer>
+
 ** Before we start
 
 You need
@@ -75,23 +93,6 @@ For org-mode version below 8.0
 
 - You can use =M-x org-version= to check your org-mode version.
 - Take a look at [[http://orgmode.org/worg/org-8.0.html][Upgrading to Org 8.0 or the current master branch guide]]
-
-** The absolute minimum you need to know about Emacs
-
-- =M= - =ALT= (used to be called Meta)
-- =C= - =Control=
-- =S= - =Shift=
-#+HTML: <br>
-
-- =C-x C-s= - =save document=
-- =C-x C-f= - =open document=
-
-#+HTML: <br> <br>
-- Emacs is =Escape Meta Alt Control Shift=
-
-#+HTML: <footer class="source">
-http://orgmode.org/worg/org-tutorials/org4beginners.html
-#+HTML: </footer>
 
 ** 使用大綱來組織內容
 
@@ -159,22 +160,22 @@ http://orgmode.org/manual/Structural-markup-elements.html#Structural-markup-elem
 
 #+BEGIN_EXAMPLE
   http://www.google.com
-  file:/home/coldnew/test.org
+  file:/home/coldnew/test.png
   news:comp.emacs
   irc:/irc.com/#emacs
   mailto:who@email.net
-  [[file:files/2013/org-inlineimage.gif]]
   file:files/do_mount.sh::5
+  [[file:files/do_mount.sh][mount the file]]
 #+END_EXAMPLE
 
 #+BEGIN_SRC org
 http://www.google.com
-file:/home/coldnew/test.org
+file:/home/coldnew/test.png
 news:comp.emacs
 irc:/irc.com/#emacs
 mailto:who@email.net
-[[file:files/2013/org-inlineimage.gif]]
 file:files/do_mount.sh::5
+[[file:files/do_mount.sh][mount the file]]
 #+END_SRC
 
 #+HTML: <footer class="source">
@@ -249,6 +250,28 @@ http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html
 ,#+END_SRC
 #+END_SRC
 
+** Comments
+
+- Use =C-c ;= to comment out entry
+
+#+BEGIN_SRC org
+  ,* COMMENT This enty and it's child will not be export
+
+  ,** I will not be exported
+#+END_SRC
+
+- =#= will be taken as comment
+
+#+BEGIN_SRC org
+  # This line is comment in org mode
+#+END_SRC
+
+- In =#+BEGIN_COMMENT ... #+END_COMMENT= , content will not be exported
+#+BEGIN_SRC org
+  ,#+BEGIN_COMMENT
+   I will not be exported
+  ,#+END_COMMENT
+#+END_SRC
 
 * 筆記系統與任務管理
 
@@ -265,11 +288,13 @@ http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html
 
 #+BEGIN_SRC org
   ,* Android                                                           :android:
+  ,* Linux                                                             :linux:
 #+END_SRC
 
 | 快捷鍵 | 用途                      |
 |--------+---------------------------|
 | C-c \  | 查找某個 tag 下的所有項目 |
+| C-c /  | 查找查找特定的項目        |
 
 ** 使用 gpg 加密你的秘密
 
@@ -307,9 +332,9 @@ http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html
   (global-set-key (kbd "C-c r") 'org-capture)
 
   ;; Setup capture template
-  (setq org-capture-templates '(("t" "TODO" entry (file+headline "" "Tasks") "* TODO %?\n %i\n")
-                                ("n" "NOTE" entry (file+headline "" "Tasks") "* NOTE %?\n %i\n %a")
-                                ))
+  (setq org-capture-templates
+        '(("t" "TODO" entry (file+headline "" "Tasks") "* TODO %?\n %i\n")
+          ("n" "NOTE" entry (file+headline "" "Tasks") "* NOTE %?\n %i\n %a")))
 #+END_SRC
 
 - 使用 =C-c r= 選擇要紀錄的類型
@@ -319,10 +344,10 @@ http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html
 http://orgmode.org/manual/Capture.html#Capture
 #+HTML: </footer>
 
-** =TODO= and =DONE= and =SCHEDULE=
+** =TODO= and =DONE=
 
 - 使用 =C-c t= 切換 =TODO= 與 =DONE= 狀態
-- 使用 =C-c C-s= 加入日程規劃
+
 #+BEGIN_SRC org
   ,* Task
   ,** TODO Buy milk
@@ -342,13 +367,77 @@ http://orgmode.org/manual/Capture.html#Capture
 http://orgmode.org/manual/Tracking-TODO-state-changes.html
 #+HTML: </footer>
 
+** 設置任務優先級
+
+- Use =S-Up= to change priority up
+- Use =S-Down= to change priority down
+
+#+BEGIN_SRC org
+  ,* Task
+  ,** TODO [#A] Join COSCUP 2013
+  ,** TODO [#B] Write paper
+  ,** TODO [#C] Write letter to Sam Fortune
+#+END_SRC
+
+** 用複選框標記子任務
+
+- 以 =[ ]=  開頭的列會被認做是複選框
+- 使用 =C-c C-c= 改變複選框狀態
+- 使用 =M-S RET= 增加子項目
+
+#+BEGIN_SRC org
+  ,* TODO Need to do [0/4]
+
+  - [ ] Buy book
+  - [ ] Buy DVD
+  - [ ] Read book
+  - [ ] Sell book
+#+END_SRC
+
+** =SCHEDULE= and =DEADLINE=
+
+- 使用 =C-c C-s= 加入日程規劃
+- 使用 =C-c C-d= 加入 deadline
+
+#+BEGIN_SRC org
+  ,* Task
+  ,** TODO Buy milk
+  ,** DONE Join COSCUP 2013 8/3
+  CLOSED: [2013-08-03 Sat 04:24]
+  ,** TODO Join COSCUP 2013 8/4
+  SCHEDULED: <2013-08-04 Sun>
+  ,** TODO Buy book
+  DEADLINE: <2013-08-04 日>
+#+END_SRC
+
 ** 使用 Agenda 追蹤你的狀況
 
-- =M-x org-agenda=
+- 輸入 =M-x org-agenda= 選擇類型
+
+- 在 agenda-view 中，可以輸入
+  + =d= daily agenda
+  + =w= weekly agenda
+  + =v m= monthly agenday
+  + =v y= yearly agenda
 
 #+HTML: <footer class="source">
 http://orgmode.org/manual/Agenda-Views.html
 #+HTML: </footer>
+
+** 紀錄你做事的時間
+
+- Use =C-c C-x i= to start timer
+- Use =C-c C-x o= to stop timer
+- Use =C-u C-c C-x i= to see current timer
+
+#+BEGIN_SRC org
+  ,* test timer
+     CLOCK: [2013-08-03 六 14:12]--[2013-08-03 六 14:14] =>  0:02
+     CLOCK: [2013-08-03 六 14:11]--[2013-08-03 六 14:12] =>  0:01
+     CLOCK: [2013-08-03 六 14:10]--[2013-08-03 六 14:11] =>  0:01
+#+END_SRC
+
+- In Agenda Daily veiw, use =R= to see clock result.
 
 * 文件輸出 (HTML、LaTeX ...etc)
 
@@ -391,6 +480,30 @@ http://orgmode.org/manual/Agenda-Views.html
 
 #+HTML: <footer class="source">
 http://orgmode.org/worg/exporters/ox-overview.html
+#+HTML: </footer>
+
+** Export Options
+
+- You can use =C-c C-e #= to insert template
+
+#+BEGIN_EXAMPLE
+  ,#+TITLE:       the title to be shown (default is the buffer name)
+  ,#+AUTHOR:      the author (default taken from user-full-name)
+  ,#+DATE:        a date, an Org timestamp1, or a format string for format-time-string
+  ,#+EMAIL:       his/her email address (default from user-mail-address)
+  ,#+DESCRIPTION: the page description, e.g., for the XHTML meta tag
+  ,#+KEYWORDS:    the page keywords, e.g., for the XHTML meta tag
+  ,#+LANGUAGE:    language for HTML, e.g., ‘ en ’ (org-export-default-language)
+  ,#+OPTIONS:     H:2 num:t toc:t \n:nil @:t ::t |:t ^:t f:t TeX:t ...
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  num:       turn on/off section-numbers
+  toc:       turn on/off table of contents, or set level limit (integer)
+#+END_EXAMPLE
+
+#+HTML: <footer class="source">
+http://orgmode.org/manual/Export-options.html
 #+HTML: </footer>
 
 ** Markdown
@@ -448,7 +561,7 @@ http://orgmode.org/manual/LaTeX-and-PDF-export.html#LaTeX-and-PDF-export
 - =#+HTML_HEAD:= 用來增加 javascript 或是 css
 
 #+BEGIN_SRC org
-  ,#+HTML_HEAD: <script src="style/js/less-1.3.0.min.js" type="text/javascript"></script>
+  ,#+HTML_HEAD: <script src="style/js/less.min.js" type="text/javascript"></script>
   ,#+HTML_HEAD: <link rel="stylesheet" media="all" href="theme/css/slide.css" />
 #+END_SRC
 
@@ -470,7 +583,7 @@ http://orgmode.org/manual/HTML-export.html#HTML-export
 - [[http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html#sec-4][org-tree-slide]]
 - [[http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html#sec-6][org-reveal]]
 - ox-deck.el
-- org-html5presentation  =(not work on org-mode 8.0 anymore)=
+- org-html5presentation  =(not work on org-mode 8.0)=
 - [[https://github.com/coldnew/org-ioslide][org-ioslide]]
 
 #+HTML: <footer class="source">
@@ -525,16 +638,16 @@ http://orgmode.org/worg/org-contrib/babel/intro.html
 ** 使用 ditaa 來繪圖
 
 #+BEGIN_SRC org
-,#+BEGIN_SRC ditaa :file picts/hello-world.png
-+--------------+
-|              |
-| Hello World! |
-|              |
-+--------------+
-,#+END_SRC
+  ,#+BEGIN_SRC ditaa :file picts/hello-world.png
+    +--------------+
+    |              |
+    | Hello World! |
+    |              |
+    +--------------+
+  ,#+END_SRC
 
-,#+RESULTS:
-[[file:picts/hello-world.png]]
+  ,#+RESULTS:
+  [[file:picts/hello-world.png]]
 #+END_SRC
 
 [[file:picts/hello-world.png]]
@@ -585,6 +698,21 @@ http://www.openfoundry.org/tw/foss-programs/8820-graphviz
 http://plantuml.sourceforge.net/index.html
 #+HTML: </footer>
 
+** Include files
+
+- Use =C-c '﻿= to visit the include file at point
+
+#+BEGIN_SRC org
+  ,#+INCLUDE: "~/.emacs" src emacs-lisp
+
+  ,#+INCLUDE: "~/.emacs" :lines "5-10"   Include lines 5 to 10, 10 excluded
+  ,#+INCLUDE: "~/.emacs" :lines "-10"    Include lines 1 to 10, 10 excluded
+  ,#+INCLUDE: "~/.emacs" :lines "10-"    Include lines from 10 to EOF
+#+END_SRC
+#+HTML: <footer class="source">
+http://orgmode.org/manual/Include-files.html
+#+HTML: </footer>
+
 * Want to learn more ?
 
 #+HTML: <br>
@@ -594,6 +722,14 @@ http://plantuml.sourceforge.net/index.html
 #+HTML: <br>
 
 - [[http://orgmode.org/worg/][Hello Worg, the Org-Mode Community!]]
+
+#+HTML: <br>
+
+- [[http://www.mastermindcn.com/category/computer_science/emacs/][用 Org-mode 实践《奇特的一生》]]
+
+#+HTML: <br>
+
+- [[http://mobileorg.ncogni.to/][MobileOrg]]
 
 * 小技巧
 
@@ -646,4 +782,5 @@ http://plantuml.sourceforge.net/index.html
 <Thank you>
 #+HTML: </h2>
 
+#+HTML: <br>
 #+HTML: <p class="auto-fadein" data-config-contact> </p>
