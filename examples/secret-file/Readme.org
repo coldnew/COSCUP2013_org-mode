@@ -1,0 +1,41 @@
+#+TITLE: use gpg to encrypt your org-mode file
+
+
+* Setup
+
+Use =C-c C-c= to evalute following code
+
+#+BEGIN_SRC emacs-lisp
+  ;; org-mode 設定
+  (require 'org-crypt)
+
+  ;; 當被加密的部份要存入硬碟時，自動加密回去
+  (org-crypt-use-before-save-magic)
+
+  ;; 設定要加密的 tag 標籤為 secret
+  (setq org-crypt-tag-matcher "secret")
+
+  ;; 避免 secret 這個 tag 被子項目繼承 造成重複加密
+  ;; (但是子項目還是會被加密喔)
+  (setq org-tags-exclude-from-inheritance (quote ("secret")))
+
+  ;; 用於加密的 GPG 金鑰
+  ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
+  (setq org-crypt-key nil)
+#+END_SRC
+
+For more info, please take a look at [[http://coldnew.github.io/blog/2013/07/13_5b094.html][使用 gnupg 加密你的 org-mode 文章]]
+
+* Test
+
+Use =M-x org-decrypt-entry= to decode the entry, password is =123=
+
+
+* I am secret                                                        :secret:
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+jA0EAwMCXFR6uDuT1F9gySYIupvuOob8Gg6mmqaT/uTXmNYUrWhCz+qa08VopZqc
+ZZttTsMHzA==
+=l94n
+-----END PGP MESSAGE-----

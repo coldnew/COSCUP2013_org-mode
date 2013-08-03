@@ -1,0 +1,32 @@
+#+TITLE: Beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_THEME: default
+#+OPTIONS: toc:nil
+
+* Beamer slide example
+
+** A simple slide
+
+This slide consists of some text with a number of bullet points:
+- the first, very *important*, point!
+
+** A theorem block
+  :PROPERTIES:
+  :BEAMER_env: theorem
+  :BEAMER_act: <2->
+  :END:
+
+The =BEAMER_act= property says to overlay this environment from the
+second frame onwards.
+
+** A block in a column
+  :PROPERTIES:
+  :BEAMER_env: block
+  :BEAMER_col: 0.5
+  :END:
+
+** Just a column with contents
+  :PROPERTIES:
+  :BEAMER_col: 0.5
+  :END:
+Some text, the headline above is ignored
