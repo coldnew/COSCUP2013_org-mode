@@ -14,4 +14,4 @@ All examples are locate at examples folder.
 以及其原始碼。其中 slide.html 是透過我另外一個專案 [[https://github.com/coldnew/org-ioslide][org-ioslide]] 來產生
 的。
 
-examples 資料夾則置放著許多範例，包含有提到的或是來不及講到的。a
+examples 資料夾則置放著許多範例，包含有提到的或是來不及講到的。
