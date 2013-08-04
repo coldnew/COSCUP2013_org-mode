@@ -9,6 +9,7 @@
 
 #+FAVICON: picts/org-mode_icon.png
 #+ICON: picts/org-mode_icon.png
+#+ANALYTICS: UA-42122243-1
 
 #+USE_PRETTIFY: false
 
