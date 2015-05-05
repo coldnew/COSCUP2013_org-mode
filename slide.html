@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<!-- 2013-08-03 六 15:25 -->
+<meta  charset="utf-8" />
+<meta  htto-equiv="X-UA-Compatible" content="chrome=1" />
+<meta  name="generator" content="Org-mode with org-ioslide" />
+<meta  name="author" content="Yen-Chin, Lee" />
+
+
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--This one seems to work all the time, but really small on ipad-->
+<!--<meta name="viewport" content="initial-scale=0.4">-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" media="all" href="theme/css/default.css" />
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css" />
+<base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+<script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+<script src="js/bootstrap/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="js/bootstrap/js/bootstrap-transition.js" type="text/javascript"></script>
+<script src="js/bootstrap/js/bootstrap-dropdown.js" type="text/javascript"></script>
+<script src="js/bootstrap/js/bootstrap-collapse.js" type="text/javascript"></script>
+<link rel="stylesheet" media="all" href="theme/css/slide.css" />
+</head>
+<body style="opacity: 0">
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+       <aside class="gdbar"><img src="picts/org-mode_icon.png"></aside>
+       <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+       <hgroup class="auto-fadein">
+         <h1 data-config-title><!-- populated from slide_config.json --></h1>
+         <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+         <p data-config-presenter><!-- populated from slide_config.json --></p>
+       </hgroup>
+    </slide>
+
+<slide id="sec-1"  >
+<hgroup class="">
+       <h2 class="">About Me</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-1">
+<ul class="org-ul">
+<li>User id: <code>coldnew</code>
+</li>
+<li>Use emacs since 2006
+</li>
+<li>My emacs lisp plugin
+<ul class="org-ul">
+<li>org-ioslide
+</li>
+<li>pangu-spacing
+</li>
+<li>ac-octave
+</li>
+<li>linum-ace
+</li>
+<li>linum-relative
+</li>
+<li>qml-mode
+</li>
+</ul>
+</li>
+
+<li>GitHub: <a href="http://github.com/coldnew">http://github.com/coldnew</a>
+</li>
+</ul>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2" class="segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="picts/org-mode_icon.png"></aside><article class="flexbox vleft auto-fadein" id="text-2">
+
+<q>
+  Org Mode <br> - Organize Your Life In Plain Text!
+</q>
+
+</article>
+
+</slide>
+<slide id="sec-2-1"  >
+<hgroup class="">
+       <h2 class="">The absolute minimum you need to know about Emacs</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-1">
+<ul class="org-ul">
+<li><code>M</code> - <code>ALT</code> (used to be called Meta)
+</li>
+<li><code>C</code> - <code>Control</code>
+</li>
+<li><code>S</code> - <code>Shift</code>
+</li>
+</ul>
+<br>
+
+<ul class="org-ul">
+<li><code>C-x C-s</code> - <code>save document</code>
+</li>
+<li><code>C-x C-f</code> - <code>open document</code>
+</li>
+</ul>
+
+<br> <br>
+<ul class="org-ul">
+<li>Emacs is <code>Escape Meta Alt Control Shift</code>
+</li>
+</ul>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/org-tutorials/org4beginners.html">http://orgmode.org/worg/org-tutorials/org4beginners.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-2"  >
+<hgroup class="">
+       <h2 class="">Before we start</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-2">
+<p>
+You need
+</p>
+
+<ul class="org-ul">
+<li>GNU Emacs version <code>24</code>
+</li>
+
+<li>org-mode version <code>8.0 ↑</code>
+</li>
+</ul>
+
+<br>
+
+<p>
+Install org-mode ver 8.0 under emacs24
+</p>
+
+<ul class="org-ul">
+<li>Use <code>M-x package-install</code> and enter <code>org</code>
+</li>
+</ul>
+
+<br>
+
+<p>
+For org-mode version below 8.0
+</p>
+
+<ul class="org-ul">
+<li>You can use <code>M-x org-version</code> to check your org-mode version.
+</li>
+<li>Take a look at <a href="http://orgmode.org/worg/org-8.0.html">Upgrading to Org 8.0 or the current master branch guide</a>
+</li>
+</ul>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-3"  >
+<hgroup class="">
+       <h2 class="">使用大綱來組織內容</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-3">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* &#38364;&#26044; org-mode</span>
+   &#20171;&#32057; org-mode &#30340;&#21508;&#31278;&#29992;&#36884;&#12290;
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* &#26178;&#38291;&#31649;&#29702;</span>
+   &#22914;&#20309;&#20351;&#29992; org-mode &#20358;&#36914;&#34892;&#26178;&#38291;&#31649;&#29702;&#12290;
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* &#29986;&#29983;&#25991;&#20214;&#27284;</span>
+<span style="color: #0b0b0b;">**</span><span style="color: #ff83fa;">* &#29986;&#29983; HTML &#27284;&#26696;</span>
+<span style="color: #0b0b0b;">**</span><span style="color: #ff83fa;">* &#29986;&#29983; Latex &#27284;&#26696;</span>
+</pre>
+
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">按鍵</th>
+<th scope="col" class="left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">M-RET</td>
+<td class="left">插入同一級標題</td>
+</tr>
+
+<tr>
+<td class="left">M-Left/Right</td>
+<td class="left">將當前標題升級/降級 (減少/增加星星)</td>
+</tr>
+
+<tr>
+<td class="left">C-*</td>
+<td class="left">將游標所在的那一行變為標題</td>
+</tr>
+
+<tr>
+<td class="left">TAB</td>
+<td class="left">折疊/打開標題和其內容</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-4"  >
+<hgroup class="">
+       <h2 class="">條列你的項目</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">列表類型</th>
+<th scope="col" class="left">表達符號或方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">無序列表</td>
+<td class="left">- 、 + 、 *</td>
+</tr>
+
+<tr>
+<td class="left">有序列表</td>
+<td class="left">1. 或者 1) 開頭</td>
+</tr>
+
+<tr>
+<td class="left">描述列表</td>
+<td class="left">使用 :: 將描述內容與項目分開</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+- <span style="font-weight: bold;">&#36889;&#26159;&#38917;&#30446;&#19968; ::</span> &#38917;&#30446;&#30340;&#23450;&#32681;
+- &#36889;&#26159;&#38917;&#30446;&#20108;
+  + &#38917;&#30446;&#20108;&#30340;&#23376;&#38917;&#30446;&#19968;
+  + &#38917;&#30446;&#20108;&#30340;&#23376;&#38917;&#30446;&#20108;
+1. &#26781;&#21015;&#24335; 1
+2. &#26781;&#21015;&#24335; 2
+   1) &#23376;&#38917;&#30446; 1
+   2) &#23376;&#38917;&#30446; 2
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-5"  >
+<hgroup class="">
+       <h2 class="">強調重要的文句</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-5">
+<pre class="example">
+*粗體*                 /斜體/
++刪除線+               H_2 O
+ E=mc^2               =等寬字=
+_下劃線_
+</pre>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="font-weight: bold;">*&#31895;&#39636;*</span>                <span style="font-style: italic;">/&#26012;&#39636;/</span>
+<span style="text-decoration: line-through;">+&#21034;&#38500;&#32218;+</span>               H&#8322;O
+ E=mc&#178;               <span style="color: #f0c674;">=&#31561;&#23532;&#23383;=</span>
+<span style="text-decoration: underline;">_&#19979;&#21123;&#32218;_</span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Structural-markup-elements.html#Structural-markup-elements">http://orgmode.org/manual/Structural-markup-elements.html#Structural-markup-elements</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-6"  >
+<hgroup class="">
+       <h2 class="">加入超連結或圖檔</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-6">
+<pre class="example">
+http://www.google.com
+file:/home/coldnew/test.png
+news:comp.emacs
+irc:/irc.com/#emacs
+mailto:who@email.net
+file:files/do_mount.sh::5
+[[file:files/do_mount.sh][mount the file]]
+</pre>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #1e90ff; text-decoration: underline;"><a href="http://www.google.com">http://www.google.com</a></span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="file:/home/coldnew/test.png">file:/home/coldnew/test.png</a></span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="news:comp.emacs">news:comp.emacs</a></span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="irc:/irc.com/#emacs">irc:/irc.com/#emacs</a></span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="mailto:who@email.net">mailto:who@email.net</a></span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="file:files/do_mount.sh::5">file:files/do_mount.sh::5</a></span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="file:files/do_mount.sh">mount the file</a></span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Hyperlinks.html#Hyperlinks">http://orgmode.org/manual/Hyperlinks.html#Hyperlinks</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-7"  >
+<hgroup class="">
+       <h2 class="">emacs 也可以直接顯示圖片</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-7">
+<ul class="org-ul">
+<li>使用 <code>M-x org-toggle-inline-images</code> 來切換顯示圖片
+</li>
+</ul>
+
+<article class="flexbox vcenter">
+
+<div class="figure">
+<p><img src="picts/emacs-image.png" alt="emacs-image.png" />
+</p>
+</div>
+</article>
+
+<footer class="source">
+<p>
+<a href="http://coldnew.github.io/blog/2013/07/14_a5b3f.html">在 org-mode 中顯示圖片</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-8"  >
+<hgroup class="">
+       <h2 class="">加上表格來整理資訊</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-8">
+<ul class="org-ul">
+<li>使用 <code>|</code> 作為表格分隔
+</li>
+<li>按下 <code>TAB</code> 可以再表格內切換
+</li>
+<li>輸入 <code>|-</code> 再按下 <code>TAB</code> 可以產生分隔線
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #87cefa;">| Name  | Phone | Age |</span>
+<span style="color: #87cefa;">|-------+-------+-----|</span>
+<span style="color: #87cefa;">| Peter |  1234 |  17 |</span>
+<span style="color: #87cefa;">| Anna  |  4321 |  25 |</span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Tables.html#Tables">http://orgmode.org/manual/Tables.html#Tables</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-9"  >
+<hgroup class="">
+       <h2 class="">表格也可以當作試算表</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-9">
+<ul class="org-ul">
+<li>在 <code>#+TBLFM:</code> 的位置用 <code>C-c C-c</code> 更新表格
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #87cefa;">| Student  | Maths | Physics | Mean |</span>
+<span style="color: #87cefa;">|----------+-------+---------+------|</span>
+<span style="color: #87cefa;">| Bertrand |    13 |      09 |   11 |</span>
+<span style="color: #87cefa;">| Henri    |    15 |      14 | 14.5 |</span>
+<span style="color: #87cefa;">| Arnold   |    17 |      13 |   15 |</span>
+<span style="color: #5d9ae4; font-style: italic;">#+TBLFM: $4=vmean($2..$3)</span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html">http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-10"  >
+<hgroup class="">
+       <h2 class="">插入程式碼</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-10">
+<ul class="org-ul">
+<li>使用 <code>&lt;s TAB</code> 插入程式碼的樣板
+</li>
+<li>使用 <code>﻿C-c '﻿</code> 編輯程式碼，再使用 <code>C-c C-c</code> 跳回
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC c</span>
+<span style="color: #4BC98A;">  #include</span> <span style="color: #95E454; font-style: italic;">&lt;stdio.h&gt;</span>
+
+  <span style="color: #CAE682;">int</span> <span style="color: #AD7FA8; font-weight: bold; font-style: italic;">main</span> (<span style="color: #CAE682;">int</span> <span style="color: #4BC98A;">argc</span>, <span style="color: #CAE682;">char</span> *<span style="color: #4BC98A;">argv</span>[])
+  {
+          printf(<span style="color: #95E454; font-style: italic;">"Hello Org-mode</span><span style="color: #4eee94;">\n</span><span style="color: #95E454; font-style: italic;">"</span>);
+  }
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+</pre>
+
+</div>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC python</span>
+  <span style="color: #FFC125;">print</span> (<span style="color: #95E454; font-style: italic;">"Hello Org-mode"</span>)
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-2-11"  >
+<hgroup class="">
+       <h2 class="">Comments</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-2-11">
+<ul class="org-ul">
+<li>Use <code>C-c ;</code> to comment out entry
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* </span><span style="color: #e65c00;">COMMENT</span><span style="color: #8AC6F2; font-weight: bold;"> This enty and it's child will not be export</span>
+
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* I will not be exported</span>
+</pre>
+
+</div>
+
+<ul class="org-ul">
+<li><code>#</code> will be taken as comment
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;"># This line is comment in org mode</span>
+</pre>
+
+</div>
+
+<ul class="org-ul">
+<li>In <code>#+BEGIN_COMMENT ... #+END_COMMENT</code> , content will not be exported
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_COMMENT</span>
+ I will not be exported
+<span style="color: #5d9ae4; font-style: italic;">#+END_COMMENT</span>
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+
+</slide>
+</slide>
+<slide id="sec-3" class="segue dark nobackground" style="background-image: url(nil)">
+<aside class="gdbar right top"><img src="picts/org-mode_icon.png"></aside><hgroup class="">
+       <h2 class="">筆記系統與任務管理</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3">
+
+</article>
+
+</slide>
+<slide id="sec-3-1"  >
+<hgroup class="">
+       <h2 class="">使用標籤 (tag) 來進行分類</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-1">
+<ul class="org-ul">
+<li>在標題使用 <code>C-c C-c</code> 來加上 tag
+</li>
+<li>正文中可以使用 <code>C-c C-q</code> 加上 tag 標記
+</li>
+<li>tag 具有繼承性
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* Android                                                           </span><span style="color: #8AC6F2; font-weight: bold;">:android:</span>
+<span style="color: #8AC6F2; font-weight: bold;">* Linux                                                             </span><span style="color: #8AC6F2; font-weight: bold;">:linux:</span>
+</pre>
+
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">快捷鍵</th>
+<th scope="col" class="left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C-c \</td>
+<td class="left">查找某個 tag 下的所有項目</td>
+</tr>
+
+<tr>
+<td class="left">C-c /</td>
+<td class="left">查找查找特定的項目</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-2"  >
+<hgroup class="">
+       <h2 class="">使用 gpg 加密你的秘密</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-2">
+<ul class="org-ul">
+<li>Before
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* My Secret                                                          </span><span style="color: #8AC6F2; font-weight: bold;">:secret:</span>
+  &#24115;&#34399;: abcdefghi  &#23494;&#30908;: 123456789
+</pre>
+
+</div>
+</li>
+
+<li>After
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* My Secret                                                          </span><span style="color: #8AC6F2; font-weight: bold;">:secret:</span>
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+jA0EAwMCMHyo+92YAGdgyT6BozrNKie0QDp/STnysilwZC3PtBefc8BBMFxqHlsX
+mLAoEgnqRyj3GFBfc8H9Bz1/7sLlJv66GhkIasczTQ==
+=IMdx
+-----END PGP MESSAGE-----
+</pre>
+
+</div>
+</li>
+</ul>
+
+<footer class="source">
+<p>
+<a href="http://coldnew.github.io/blog/2013/07/13_5b094.html">使用 gnupg 加密你的文章</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-3"  >
+<hgroup class="">
+       <h2 class="">使用 org-capture 來快速紀錄筆記</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-3">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="emacs-lisp">
+<span style="color: #5d9ae4; font-style: italic;">;; </span><span style="color: #5d9ae4; font-style: italic;">Set default org file to store note</span>
+(setq org-default-notes-file (concat org-directory <span style="color: #95E454; font-style: italic;">"NOTE.org"</span>))
+
+<span style="color: #5d9ae4; font-style: italic;">;; </span><span style="color: #5d9ae4; font-style: italic;">Quickly use C-c r to take note</span>
+(global-set-key (kbd <span style="color: #95E454; font-style: italic;">"C-c r"</span>) 'org-capture)
+
+<span style="color: #5d9ae4; font-style: italic;">;; </span><span style="color: #5d9ae4; font-style: italic;">Setup capture template</span>
+(setq org-capture-templates
+      '((<span style="color: #95E454; font-style: italic;">"t"</span> <span style="color: #95E454; font-style: italic;">"TODO"</span> entry (file+headline <span style="color: #95E454; font-style: italic;">""</span> <span style="color: #95E454; font-style: italic;">"Tasks"</span>) <span style="color: #95E454; font-style: italic;">"* TODO %?</span><span style="color: #4eee94;">\n</span><span style="color: #95E454; font-style: italic;"> %i</span><span style="color: #4eee94;">\n</span><span style="color: #95E454; font-style: italic;">"</span>)
+        (<span style="color: #95E454; font-style: italic;">"n"</span> <span style="color: #95E454; font-style: italic;">"NOTE"</span> entry (file+headline <span style="color: #95E454; font-style: italic;">""</span> <span style="color: #95E454; font-style: italic;">"Tasks"</span>) <span style="color: #95E454; font-style: italic;">"* NOTE %?</span><span style="color: #4eee94;">\n</span><span style="color: #95E454; font-style: italic;"> %i</span><span style="color: #4eee94;">\n</span><span style="color: #95E454; font-style: italic;"> %a"</span>)))
+</pre>
+
+</div>
+
+<ul class="org-ul">
+<li>使用 <code>C-c r</code> 選擇要紀錄的類型
+</li>
+<li>紀錄完成後使用 <code>C-c C-c</code> 跳回
+</li>
+</ul>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Capture.html#Capture">http://orgmode.org/manual/Capture.html#Capture</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-4"  >
+<hgroup class="">
+       <h2 class=""><code>TODO</code> and <code>DONE</code></h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-4">
+<ul class="org-ul">
+<li>使用 <code>C-c t</code> 切換 <code>TODO</code> 與 <code>DONE</code> 狀態
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* Task</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> Buy milk</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #4BC98A; font-weight: bold;">DONE</span><span style="color: #ee9a49;"> Join COSCUP 2013 8/3</span>
+<span style="color: #e65c00;">CLOSED:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">[2013-08-03 Sat 04:24]</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> Join COSCUP 2013 8/4</span>
+<span style="color: #e65c00;">SCHEDULED:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">&lt;2013-08-04 Sun&gt;</span>
+</pre>
+
+</div>
+
+<ul class="org-ul">
+<li>可以增加其他的設定
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+TODO: TODO(t) WAIT(w@/!) | DONE(d!) CANCELED(c@)</span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Tracking-TODO-state-changes.html">http://orgmode.org/manual/Tracking-TODO-state-changes.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-5"  >
+<hgroup class="">
+       <h2 class="">設置任務優先級</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-5">
+<ul class="org-ul">
+<li>Use <code>S-Up</code> to change priority up
+</li>
+<li>Use <code>S-Down</code> to change priority down
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* Task</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> </span><span style="color: #FFC125;">[#A]</span><span style="color: #ee9a49;"> Join COSCUP 2013</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> </span><span style="color: #FFC125;">[#B]</span><span style="color: #ee9a49;"> Write paper</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> </span><span style="color: #FFC125;">[#C]</span><span style="color: #ee9a49;"> Write letter to Sam Fortune</span>
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-6"  >
+<hgroup class="">
+       <h2 class="">用複選框標記子任務</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-6">
+<ul class="org-ul">
+<li>以 <code>[ ]</code>  開頭的列會被認做是複選框
+</li>
+<li>使用 <code>C-c C-c</code> 改變複選框狀態
+</li>
+<li>使用 <code>M-S RET</code> 增加子項目
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #8AC6F2; font-weight: bold;"> Need to do </span><span style="color: #E52210; font-weight: bold;">[0/4]</span>
+
+- <span style="font-weight: bold;">[ ]</span> Buy book
+- <span style="font-weight: bold;">[ ]</span> Buy DVD
+- <span style="font-weight: bold;">[ ]</span> Read book
+- <span style="font-weight: bold;">[ ]</span> Sell book
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-7"  >
+<hgroup class="">
+       <h2 class=""><code>SCHEDULE</code> and <code>DEADLINE</code></h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-7">
+<ul class="org-ul">
+<li>使用 <code>C-c C-s</code> 加入日程規劃
+</li>
+<li>使用 <code>C-c C-d</code> 加入 deadline
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* Task</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> Buy milk</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #4BC98A; font-weight: bold;">DONE</span><span style="color: #ee9a49;"> Join COSCUP 2013 8/3</span>
+<span style="color: #e65c00;">CLOSED:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">[2013-08-03 Sat 04:24]</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> Join COSCUP 2013 8/4</span>
+<span style="color: #e65c00;">SCHEDULED:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">&lt;2013-08-04 Sun&gt;</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* </span><span style="color: #E52210; font-weight: bold;">TODO</span><span style="color: #ee9a49;"> Buy book</span>
+<span style="color: #e65c00;">DEADLINE:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">&lt;2013-08-04 &#26085;&gt;</span>
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-8"  >
+<hgroup class="">
+       <h2 class="">使用 Agenda 追蹤你的狀況</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-8">
+<ul class="org-ul">
+<li>輸入 <code>M-x org-agenda</code> 選擇類型
+</li>
+
+<li>在 agenda-view 中，可以輸入
+<ul class="org-ul">
+<li><code>d</code> daily agenda
+</li>
+<li><code>w</code> weekly agenda
+</li>
+<li><code>v m</code> monthly agenday
+</li>
+<li><code>v y</code> yearly agenda
+</li>
+</ul>
+</li>
+</ul>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Agenda-Views.html">http://orgmode.org/manual/Agenda-Views.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-3-9"  >
+<hgroup class="">
+       <h2 class="">紀錄你做事的時間</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-3-9">
+<ul class="org-ul">
+<li>Use <code>C-c C-x i</code> to start timer
+</li>
+<li>Use <code>C-c C-x o</code> to stop timer
+</li>
+<li>Use <code>C-u C-c C-x i</code> to see current timer
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #8AC6F2; font-weight: bold;">* test timer</span>
+   <span style="color: #e65c00;">CLOCK:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">[2013-08-03 &#20845; 14:12]--[2013-08-03 &#20845; 14:14]</span> =&gt;  0:02
+   <span style="color: #e65c00;">CLOCK:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">[2013-08-03 &#20845; 14:11]--[2013-08-03 &#20845; 14:12]</span> =&gt;  0:01
+   <span style="color: #e65c00;">CLOCK:</span> <span style="color: #AD7fA8; font-weight: bold; text-decoration: underline;">[2013-08-03 &#20845; 14:10]--[2013-08-03 &#20845; 14:11]</span> =&gt;  0:01
+</pre>
+
+</div>
+
+<ul class="org-ul">
+<li>In Agenda Daily veiw, use <code>R</code> to see clock result.
+</li>
+</ul>
+
+</article>
+
+</slide>
+
+</slide>
+</slide>
+<slide id="sec-4" class="segue dark nobackground" style="background-image: url(nil)">
+<aside class="gdbar right top"><img src="picts/org-mode_icon.png"></aside><hgroup class="">
+       <h2 class="">文件輸出 (HTML、LaTeX &#x2026;etc)</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4">
+
+</article>
+
+</slide>
+<slide id="sec-4-1"  >
+<hgroup class="">
+       <h2 class="">Org 可以轉換成以下幾種形式 (builtin with Org)</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-4-1">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Name</th>
+<th scope="col" class="left">Exporter location</th>
+<th scope="col" class="left">Worg Tutorial</th>
+<th scope="col" class="left">Org-mode Manual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">ASCII</td>
+<td class="left">./lisp/ox-ascii.el</td>
+<td class="left">ox-ascii</td>
+<td class="left"><a href="http://orgmode.org/manual/ASCII_002fLatin_002d1_002fUTF_002d8-export.html#ASCII_002fLatin_002d1_002fUTF_002d8-export">ASCII/Latin-1/UTF-8 export</a></td>
+</tr>
+
+<tr>
+<td class="left"><a href="https://bitbucket.org/rivanvx/beamer/wiki/Home">Beamer</a></td>
+<td class="left">./lisp/ox-beamer.el</td>
+<td class="left"><a href="http://orgmode.org/worg/exporters/beamer/ox-beamer.html">ox-beamer</a></td>
+<td class="left"><a href="http://orgmode.org/manual/Beamer-class-export.html#Beamer-class-export">Beamer class export</a></td>
+</tr>
+
+<tr>
+<td class="left">HTML</td>
+<td class="left">./lisp/ox-html.el</td>
+<td class="left">ox-html</td>
+<td class="left"><a href="http://orgmode.org/manual/HTML-export.html#HTML-export">HTML export</a></td>
+</tr>
+
+<tr>
+<td class="left">iCalendar</td>
+<td class="left">./lisp/ox-icalandar.el</td>
+<td class="left">ox-icalendar</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">LaTeX</td>
+<td class="left">./lisp/ox-latex.el</td>
+<td class="left">ox-latex</td>
+<td class="left"><a href="http://orgmode.org/manual/LaTeX-and-PDF-export.html#LaTeX-and-PDF-export">LaTeX and PDF export</a></td>
+</tr>
+
+<tr>
+<td class="left">Man</td>
+<td class="left">./lisp/ox-man.el</td>
+<td class="left">ox-man</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Markdown</td>
+<td class="left">./lisp/ox-md.el</td>
+<td class="left">ox-md</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">ODT</td>
+<td class="left">./lisp/ox-odt.el</td>
+<td class="left">ox-odt</td>
+<td class="left"><a href="http://orgmode.org/manual/OpenDocument-Text-export.html#OpenDocument-Text-export">OpenDocument Text export</a></td>
+</tr>
+
+<tr>
+<td class="left">Publishing</td>
+<td class="left">./lisp/ox-publish.el</td>
+<td class="left">ox-publish</td>
+<td class="left"><a href="http://orgmode.org/manual/Publishing.html#Publishing">Publishing</a></td>
+</tr>
+
+<tr>
+<td class="left">Texinfo</td>
+<td class="left">./lisp/ox-texinfo.el</td>
+<td class="left">ox-texinfo</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-2"  >
+<hgroup class="">
+       <h2 class="">Org 可以轉換成以下幾種形式 (contrib)</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Name</th>
+<th scope="col" class="left">Exporter location</th>
+<th scope="col" class="left">Worg Tutorial</th>
+<th scope="col" class="left">Org-mode Manual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Confluence</td>
+<td class="left">./contrib/lisp/ox-confluence.el</td>
+<td class="left">ox-confluence</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Deck.js</td>
+<td class="left">./contrib/lisp/ox-deck.el</td>
+<td class="left">ox-deck</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Freemind</td>
+<td class="left">./contrib/lisp/ox-freemind.el</td>
+<td class="left">ox-freemind</td>
+<td class="left"><a href="http://orgmode.org/manual/Freemind-export.html#Freemind-export">Freemind export</a></td>
+</tr>
+
+<tr>
+<td class="left">Groff</td>
+<td class="left">./contrib/lisp/ox-groff.el</td>
+<td class="left">ox-groff</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Koma Scrlttr2</td>
+<td class="left">./contrib/lisp/ox-koma-letter.el</td>
+<td class="left">ox-koma-letter</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">RSS</td>
+<td class="left">./contrib/lisp/ox-rss.el</td>
+<td class="left">ox-rss</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">S5</td>
+<td class="left">./contrib/lisp/ox-s5.el</td>
+<td class="left">ox-s5</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Taskjuggler</td>
+<td class="left">./contrib/lisp/ox-taskjuggler.el</td>
+<td class="left"><a href="http://orgmode.org/worg/exporters/taskjuggler/ox-taskjuggler.html">ox-taskjugger</a></td>
+<td class="left"><a href="http://orgmode.org/manual/TaskJuggler-export.html#TaskJuggler-export">Taskjuggler export</a></td>
+</tr>
+</tbody>
+</table>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/exporters/ox-overview.html">http://orgmode.org/worg/exporters/ox-overview.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-3"  >
+<hgroup class="">
+       <h2 class="">Export Options</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-3">
+<ul class="org-ul">
+<li>You can use <code>C-c C-e #</code> to insert template
+</li>
+</ul>
+
+<pre class="example">
+#+TITLE:       the title to be shown (default is the buffer name)
+#+AUTHOR:      the author (default taken from user-full-name)
+#+DATE:        a date, an Org timestamp1, or a format string for format-time-string
+#+EMAIL:       his/her email address (default from user-mail-address)
+#+DESCRIPTION: the page description, e.g., for the XHTML meta tag
+#+KEYWORDS:    the page keywords, e.g., for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g., ‘ en ’ (org-export-default-language)
+#+OPTIONS:     H:2 num:t toc:t \n:nil @:t ::t |:t ^:t f:t TeX:t ...
+</pre>
+
+<pre class="example">
+num:       turn on/off section-numbers
+toc:       turn on/off table of contents, or set level limit (integer)
+</pre>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Export-options.html">http://orgmode.org/manual/Export-options.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-4"  >
+<hgroup class="">
+       <h2 class="">Markdown</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-4">
+<ul class="org-ul">
+<li>使用 <code>C-c C-e m m</code>  (<b>org-md-export-to-markdown</b>) 轉換成 md 文件
+</li>
+<li>使用 <code>C-c C-e m M</code>  (<b>org-md-export-as-markdown</b>) 顯示換出來的 md 文
+件內容
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+OPTIONS: toc:nil</span>
+<span style="color: #8AC6F2; font-weight: bold;">* Use org-mode to export Markdown doc</span>
+<span style="color: #0b0b0b;">*</span><span style="color: #ee9a49;">* Howto</span>
+    contents
+</pre>
+
+</div>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="markdown">
+<span style="color: #AD7FA8; font-weight: bold; font-style: italic;">#</span> <span style="color: #AD7FA8; font-weight: bold; font-style: italic;">Use org-mode to export Markdown doc</span>
+
+<span style="color: #AD7FA8; font-weight: bold; font-style: italic;">##</span> <span style="color: #AD7FA8; font-weight: bold; font-style: italic;">Howto</span>
+
+contents
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+more examples: <a href="https://github.com/alexhenning/ORGMODE-Markdown">https://github.com/alexhenning/ORGMODE-Markdown</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-5"  >
+<hgroup class="">
+       <h2 class="">LaTex and Beamer and pdf</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-5">
+<ul class="org-ul">
+<li>使用 <code>C-c C-e l l</code>  (<b>org-latex-export-to-latex</b>) 產生 LaTeX
+</li>
+<li>使用 <code>C-c C-e l L</code>  (<b>org-latex-export-as-latex</b>) 顯示 LaTeX
+</li>
+<li>使用 <code>C-c C-e l p</code>  (<b>org-latex-export-to-pdf</b>) 產生 PDF
+</li>
+</ul>
+
+<br>
+<ul class="org-ul">
+<li><code>#+LATEX_CLASS:</code>  選擇預先定義好的 LaTeX 樣板
+</li>
+<li><code>#+LATEX_HEADER:</code> 用來增加額外的 LaTeX 套件
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+LATEX_CLASS: article</span>
+<span style="color: #5d9ae4; font-style: italic;">#+LATEX_CLASS_OPTIONS: [a4paper]</span>
+<span style="color: #5d9ae4; font-style: italic;">#+LATEX_HEADER: \usepackage{xyz}</span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/LaTeX-and-PDF-export.html#LaTeX-and-PDF-export">http://orgmode.org/manual/LaTeX-and-PDF-export.html#LaTeX-and-PDF-export</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-6"  >
+<hgroup class="">
+       <h2 class="">HTML</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-6">
+<ul class="org-ul">
+<li>使用 <code>C-c C-e h h</code>  (<b>org-html-export-to-html</b>) 轉換成 HTML 文件
+</li>
+<li>使用 <code>C-c C-e h H</code>  (<b>org-html-export-as-html</b>) 顯示換出來的 HTML 文
+件內容
+</li>
+</ul>
+
+<br>
+<ul class="org-ul">
+<li><code>#+HTML_HEAD:</code> 用來增加 javascript 或是 css
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+HTML_HEAD: &lt;script src="style/js/less.min.js" type="text/javascript"&gt;&lt;/script&gt;</span>
+<span style="color: #5d9ae4; font-style: italic;">#+HTML_HEAD: &lt;link rel="stylesheet" media="all" href="theme/css/slide.css" /&gt;</span>
+</pre>
+
+</div>
+
+<ul class="org-ul">
+<li><code>#+ATTR_HTML:</code> 可以為 table 或是 src block 增加額外的設置
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+ATTR_HTML: :border 2 :width 20%</span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="file:picts.png">file:picts.png</a></span>
+</pre>
+
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/HTML-export.html#HTML-export">http://orgmode.org/manual/HTML-export.html#HTML-export</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-7"  >
+<hgroup class="">
+       <h2 class="">HTML5 Slide</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-7">
+<ul class="org-ul">
+<li><a href="http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html#sec-2">Epresent</a>
+</li>
+<li><a href="http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html#sec-3">S5</a>
+</li>
+<li><a href="http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html#sec-4">org-tree-slide</a>
+</li>
+<li><a href="http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html#sec-6">org-reveal</a>
+</li>
+<li>ox-deck.el
+</li>
+<li>org-html5presentation  <code>(not work on org-mode 8.0)</code>
+</li>
+<li><a href="https://github.com/coldnew/org-ioslide">org-ioslide</a>
+</li>
+</ul>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html">http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-4-8"  >
+<hgroup class="">
+       <h2 class="">Blogging tools</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-4-8">
+<ul class="org-ul">
+<li><a href="http://renard.github.com/o-blog">o-blog</a>
+</li>
+<li><a href="http://orgmode.org/worg/org-tutorials/org-jekyll.html">Jekyll with org-mode</a>
+</li>
+<li><a href="https://github.com/craftkiller/orgmode-octopress">Octopress with org-mode</a>
+</li>
+<li><a href="http://orgmode.org/manual/Publishing.html">Projects</a>
+</li>
+<li><a href="http://orgmode.org/worg/blorgit.html">Blorgit</a>
+</li>
+<li><a href="https://github.com/punchagan/blog-files">org2blog</a>
+</li>
+</ul>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/org-blog-wiki.html">http://orgmode.org/worg/org-blog-wiki.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+
+</slide>
+</slide>
+<slide id="sec-5" class="segue dark nobackground" style="background-image: url(nil)">
+<aside class="gdbar left top"><img src="picts/org-mode_icon.png"></aside><hgroup class="">
+       <h2 class="">文學編程 (Literate Programming)</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-5">
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/org-contrib/babel/intro.html">http://orgmode.org/worg/org-contrib/babel/intro.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+<slide id="sec-5-1"  >
+<hgroup class="">
+       <h2 class="">Code evalute and generate</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-5-1">
+<ul class="org-ul">
+<li>Use <code>C-c C-c</code> to evalute source block
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC sh</span>
+  <span style="color: #4BC98A;">echo</span> <span style="color: #95E454; font-style: italic;">"Today is `date +%D`"</span>
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+
+<span style="color: #5d9ae4; font-style: italic;">#+RESULTS:</span>
+<span style="color: #f0c674;">: Today is 08/02/13</span>
+</pre>
+
+</div>
+</li>
+
+<li>Use <code>M-x org-babel-tangle</code> to generate the code to file
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC sh :tangle src/today.sh</span>
+  <span style="color: #4BC98A;">echo</span> <span style="color: #95E454; font-style: italic;">"Today is `date +%D`"</span>
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+</pre>
+
+</div>
+</li>
+</ul>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-5-2"  >
+<hgroup class="">
+       <h2 class="">使用 ditaa 來繪圖</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-5-2">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC ditaa :file picts/hello-world.png</span>
+  +--------------+
+  |              |
+  | Hello World! |
+  |              |
+  +--------------+
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+
+<span style="color: #5d9ae4; font-style: italic;">#+RESULTS:</span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="file:picts/hello-world.png">file:picts/hello-world.png</a></span>
+</pre>
+
+</div>
+
+
+<div class="figure">
+<p><img src="picts/hello-world.png" alt="hello-world.png" />
+</p>
+</div>
+
+<footer class="source">
+<p>
+<a href="http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-ditaa.html">http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-ditaa.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-5-3"  >
+<hgroup class="">
+       <h2 class="">使用 Graphviz 畫關係圖</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-5-3">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC dot :file picts/graphviz-example.png :exports results</span>
+digraph G{
+   {a b c} -&gt; {d e f}
+}
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+
+<span style="color: #5d9ae4; font-style: italic;">#+RESULTS:</span>
+<span style="color: #1e90ff; text-decoration: underline;"><a href="file:picts/graphviz-example.png">file:picts/graphviz-example.png</a></span>
+</pre>
+
+</div>
+
+
+<div class="figure">
+<p><img src="picts/graphviz-example.png" alt="graphviz-example.png" />
+</p>
+</div>
+
+<footer class="source">
+<p>
+<a href="http://www.openfoundry.org/tw/foss-programs/8820-graphviz">http://www.openfoundry.org/tw/foss-programs/8820-graphviz</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-5-4"  >
+<hgroup class="">
+       <h2 class="">使用 PlantUML 生成 UML</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-5-4">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+BEGIN_SRC plantuml :file picts/plantuml-example.png</span>
+class Dummy {
+  String data
+  void methods()
+}
+
+class Flight {
+   flightNumber : Integer
+   departureTime : Date
+}
+<span style="color: #5d9ae4; font-style: italic;">#+END_SRC</span>
+</pre>
+
+</div>
+
+
+<div class="figure">
+<p><img src="picts/plantuml-example.png" alt="plantuml-example.png" />
+</p>
+</div>
+
+<footer class="source">
+<p>
+<a href="http://plantuml.sourceforge.net/index.html">http://plantuml.sourceforge.net/index.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-5-5"  >
+<hgroup class="">
+       <h2 class="">Include files</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-5-5">
+<ul class="org-ul">
+<li>Use <code>C-c '﻿</code> to visit the include file at point
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+<span style="color: #5d9ae4; font-style: italic;">#+INCLUDE: "~/.emacs" src emacs-lisp</span>
+
+<span style="color: #5d9ae4; font-style: italic;">#+INCLUDE: "~/.emacs" :lines "5-10"   Include lines 5 to 10, 10 excluded</span>
+<span style="color: #5d9ae4; font-style: italic;">#+INCLUDE: "~/.emacs" :lines "-10"    Include lines 1 to 10, 10 excluded</span>
+<span style="color: #5d9ae4; font-style: italic;">#+INCLUDE: "~/.emacs" :lines "10-"    Include lines from 10 to EOF</span>
+</pre>
+
+</div>
+<footer class="source">
+<p>
+<a href="http://orgmode.org/manual/Include-files.html">http://orgmode.org/manual/Include-files.html</a>
+</p>
+</footer>
+
+</article>
+
+</slide>
+
+</slide>
+</slide>
+<slide id="sec-6"  >
+<hgroup class="">
+       <h2 class="">Want to learn more ?</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-6">
+<br>
+
+<ul class="org-ul">
+<li><a href="http://doc.norang.ca/org-mode.html">Org Mode - Organize Your Life In Plain Text!</a>
+</li>
+</ul>
+
+<br>
+
+<ul class="org-ul">
+<li><a href="http://orgmode.org/worg/">Hello Worg, the Org-Mode Community!</a>
+</li>
+</ul>
+
+<br>
+
+<ul class="org-ul">
+<li><a href="http://www.mastermindcn.com/category/computer_science/emacs/">用 Org-mode 实践《奇特的一生》</a>
+</li>
+</ul>
+
+<br>
+
+<ul class="org-ul">
+<li><a href="http://mobileorg.ncogni.to/">MobileOrg</a>
+</li>
+</ul>
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-7" class="segue dark nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="picts/org-mode_icon.png"></aside><hgroup class="">
+       <h2 class="">小技巧</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-7">
+
+</article>
+
+</slide>
+<slide id="sec-7-1"  >
+<hgroup class="">
+       <h2 class="">使用 &lt;U200B&gt; 字元加強 org-mode 正規表達式</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-7-1">
+
+<ul class="org-ul">
+<li>org-mode 使用正規表達式來找尋要強調的文字
+</li>
+<li>使用 <code>C-x 8 RET 200b RET</code> 插入 &lt;U200B&gt; 字元
+</li>
+</ul>
+
+<p>
+出問題的範例
+</p>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="org">
+~target&#65279;="self"~
+</pre>
+
+</div>
+
+<p>
+原始的規則如下
+</p>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="emacs-lisp">
+(<span style="color: #FFC125;">defcustom</span> <span style="color: #4BC98A;">org-emphasis-regexp-components</span>
+  '(<span style="color: #95E454; font-style: italic;">" &#8203;</span><span style="color: #4eee94;">\t</span><span style="color: #95E454; font-style: italic;">('</span><span style="color: #4eee94;">\"</span><span style="color: #95E454; font-style: italic;">{"</span> <span style="color: #95E454; font-style: italic;">"- &#8203;</span><span style="color: #4eee94;">\t</span><span style="color: #95E454; font-style: italic;">.,:!?;'</span><span style="color: #4eee94;">\"</span><span style="color: #95E454; font-style: italic;">)}</span><span style="color: #4eee94;">\\</span><span style="color: #95E454; font-style: italic;">"</span> <span style="color: #95E454; font-style: italic;">" </span><span style="color: #4eee94;">\t\r\n</span><span style="color: #95E454; font-style: italic;">,</span><span style="color: #4eee94;">\"</span><span style="color: #95E454; font-style: italic;">'"</span> <span style="color: #95E454; font-style: italic;">"."</span> <span style="color: #E53F3F; font-weight: bold;">1</span>))
+</pre>
+
+</div>
+
+<p>
+修改成如下 (其中的 <code>#</code> 代表剛剛所提及的 <code>&lt;U200B&gt;</code> 字元 )
+</p>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="emacs-lisp">
+(setq org-emphasis-regexp-components
+ '(<span style="color: #95E454; font-style: italic;">" #&#8203;</span><span style="color: #4eee94;">\t</span><span style="color: #95E454; font-style: italic;">('</span><span style="color: #4eee94;">\"</span><span style="color: #95E454; font-style: italic;">{"</span> <span style="color: #95E454; font-style: italic;">"- &#8203;</span><span style="color: #4eee94;">\t</span><span style="color: #95E454; font-style: italic;">.,:!?;'</span><span style="color: #4eee94;">\"</span><span style="color: #95E454; font-style: italic;">)}</span><span style="color: #4eee94;">\\</span><span style="color: #95E454; font-style: italic;">"</span> <span style="color: #95E454; font-style: italic;">" </span><span style="color: #4eee94;">\t\r\n</span><span style="color: #95E454; font-style: italic;">,</span><span style="color: #4eee94;">\"</span><span style="color: #95E454; font-style: italic;">'"</span> <span style="color: #95E454; font-style: italic;">"."</span> <span style="color: #E53F3F; font-weight: bold;">1</span>))
+</pre>
+
+</div>
+
+<p>
+綁到 <code>M-space</code> 下
+</p>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="emacs-lisp">
+(global-set-key (kbd <span style="color: #95E454; font-style: italic;">"M-&lt;SPC&gt;"</span>) '(<span style="color: #FFC125;">lambda</span> ()(interactive) (insert <span style="color: #95E454; font-style: italic;">"\ufeff"</span>)))
+</pre>
+
+</div>
+
+</article>
+
+</slide>
+
+</slide>
+</slide>
+<slide id="sec-8" class="thank-you-slide segue nobackground" style="background-image: url(nil)">
+<aside class="gdbar right"><img src="picts/org-mode_icon.png"></aside><article class="flexbox vleft auto-fadein" id="text-8">
+
+<h2>
+<p>
+&lt;Thank you&gt;
+</p>
+</h2>
+
+<br>
+<p class="auto-fadein" data-config-contact> </p>
+
+</article>
+
+</slide>
+<slide class="backdrop"></slide>
+</slides>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+
+</html>

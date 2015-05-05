@@ -1,0 +1,17 @@
+#+TITLE: org-mode examples
+
+* About
+
+This folder contains some org-mode example
+#+BEGIN_SRC sh :tangle no
+ls
+#+END_SRC
+
+| Dir         | description                                  |
+|-------------+----------------------------------------------|
+| dot-emacs   | Use org-mode to manage your emacs            |
+| html        | Generate HTML file by org-mode               |
+| latex       | Generate PDF                                 |
+| literature  | Use one org-mode file to matain code and doc |
+| secret-file | Use gnupg to encrypt org-mode                |
+| todo        | TODO example                                 |

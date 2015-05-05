@@ -1,0 +1,60 @@
+#+TITLE: TODO example
+
+* About
+
+Example get from : [[http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html][How I use Emacs and Org-mode to implement GTD ]]
+
+1. You must use =C-c [= to recode this file in agenda.
+2. Use =M-x org-agenda= then select what you want to know.
+3. You can use =C-c \= to search tag.
+4. Use =C-c C-c= to disable highlight.
+
+* Borrowed
+#+CATEGORY: Borrowed
+** Stanton Library
+*** TODO Watch Mikrokosmos                                            :DVD:
+DEADLINE: <2013-08-03 Sat>
+*** TODO Read Parrots of Australia                                :READING:
+DEADLINE: <2013-08-03 Sat>
+*** TODO Watch The diaries of Vaslav Nijinsky                         :DVD:
+DEADLINE: <2013-08-04 Sun>
+
+* Projects
+#+CATEGORY: Projects
+** Implement Brian Tracy Focal Point Program                     :PROJECT:
+*** Outcome
+DEADLINE: <2013-08-05 一>
+ Make the Focal Point methodology an ingrained part of my being
+*** TODO Detailed study of Health and Fitness Chapter            :READING:
+DEADLINE: <2014-01-19 Mon>
+*** Detailed study of Business and Career (Focal Point)          :READING:
+*** Detailed study of Family & Personal life (Focal Point)       :READING:
+*** Detailed study of Money and Investments (Focal Point)        :READING:
+*** Detailed study of Personal Growth and Develop (Focal Poin    :READING:
+*** Detailed study of Social and Community (Focal Point)         :READING:
+*** Detailed study of Spiritual Dev & Inner Peace (Focal Point)  :READING:
+
+*** TODO Register COSCUP 2014
+DEADLINE: <2014-05-19 Mon>
+
+* Priority                                                         :priority:
+** TODO [#A] Join COSCUP 2013
+DEADLINE: <2013-08-03 六>
+
+** TODO [#B] Write paper
+DEADLINE: <2013-08-05 一>
+
+** TODO [#C] Write letter to Sam Fortune
+DEADLINE: <2013-08-08 四>
+
+* Daily Task
+
+** DONE Join the COSCUP 2013
+CLOSED: [2013-08-03 六 14:03] SCHEDULED: <2013-08-03 六 09:00>
+** My presentation to show =org-mode=
+SCHEDULED: <2013-08-03 六 15:50>
+
+* Timer test
+CLOCK: [2013-08-03 六 14:12]--[2013-08-03 六 14:14] =>  0:02
+CLOCK: [2013-08-03 六 14:11]--[2013-08-03 六 14:12] =>  0:01
+CLOCK: [2013-08-03 六 14:10]--[2013-08-03 六 14:11] =>  0:01

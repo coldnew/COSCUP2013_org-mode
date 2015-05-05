@@ -1,0 +1,29 @@
+#+TITLE: Emacs Literature Config
+#+AUTHOR: you
+#+EMAIL: you (at) domain.org
+
+#+BABEL: :cache yes
+
+* Package Manager
+
+Emacs has package manager named *elpa* since version 24.
+
+We setup elpa repo to make it more easy to use.
+
+[[http://melpa.milkbox.net/][MELPA]] is a great 3rd party elpa repo which contains many good emacs
+lisp plugin that you can't find under elpa.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'package-archives
+    '("melpa" . "http://melpa.milkbox.net/packages/") t)
+#+END_SRC
+
+Initial elpa
+
+#+BEGIN_SRC emacs-lisp
+  (package-initialize)
+#+END_SRC
+
+* Other settings
+
+You can add your confing here.
